@@ -13,7 +13,7 @@ import org.springframework.web.servlet.view.JstlView;
 @Configuration
 @EnableWebMvc
 @ComponentScan("com.taxApp")
-public class appWebConfig extends WebMvcConfigurerAdapter {
+public class AppWebConfig extends WebMvcConfigurerAdapter {
     
 	@Bean
     public ViewResolver viewResolver() {

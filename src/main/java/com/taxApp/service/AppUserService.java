@@ -1,9 +1,9 @@
 package com.taxApp.service;
 
-import com.taxApp.model.appUser;
+import com.taxApp.model.AppUser;
 
-public interface appUserService {
-	public int insertAppUser(appUser _user);
-	public appUser findUserByEmail(String email);
-	public appUser findUserById(int id);
+public interface AppUserService {
+	public int insertAppUser(AppUser _user);
+	public AppUser findUserByEmail(String email);
+	public AppUser findUserById(int id);
 }

@@ -4,16 +4,16 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.support.AbstractAnnotationConfigDispatcherServletInitializer;
 
 @Configuration
-public class appWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
+public class AppWebInitializer extends AbstractAnnotationConfigDispatcherServletInitializer {
  
     @Override
     protected Class<?>[] getRootConfigClasses() {
-        return new Class<?>[] {appRootConfig.class };
+        return new Class<?>[] {AppRootConfig.class };
     }
   
     @Override
     protected Class<?>[] getServletConfigClasses() {
-        return new Class<?>[] {appWebConfig.class} ;
+        return new Class<?>[] {AppWebConfig.class} ;
     }
   
     @Override

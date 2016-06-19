@@ -5,7 +5,7 @@ import java.util.Properties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-import com.taxApp.model.appUser;
+import com.taxApp.model.AppUser;
 import com.zaxxer.hikari.HikariDataSource;
 
 import org.springframework.orm.hibernate5.HibernateTransactionManager;
@@ -15,7 +15,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 
 @Configuration
 @EnableTransactionManagement
-public class appDatabaseConfig {
+public class AppDatabaseConfig {
 
 	@Bean
 	public HikariDataSource dataSource() {
@@ -39,7 +39,7 @@ public class appDatabaseConfig {
     public LocalSessionFactoryBean hibernate5SessionFactoryBean(){
         LocalSessionFactoryBean localSessionFactoryBean = new LocalSessionFactoryBean();
         localSessionFactoryBean.setDataSource(dataSource());
-        localSessionFactoryBean.setAnnotatedClasses(appUser.class);
+        localSessionFactoryBean.setAnnotatedClasses(AppUser.class);
 
         Properties properties = new Properties();
         properties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");

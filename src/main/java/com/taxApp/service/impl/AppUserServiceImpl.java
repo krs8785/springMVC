@@ -6,18 +6,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.taxApp.model.appUser;
-import com.taxApp.service.appUserService;
+import com.taxApp.model.AppUser;
+import com.taxApp.service.AppUserService;
 
 
 @Service
-public class appUserServiceImpl implements appUserService{
+public class AppUserServiceImpl implements AppUserService{
 
 	@Autowired
 	private SessionFactory sessionFactory;
 	
 	@Transactional
-	public int insertAppUser(appUser _user) {
+	public int insertAppUser(AppUser _user) {
 		// TODO Auto-generated method stub
 		return (Integer) sessionFactory
                 .getCurrentSession()
@@ -26,24 +26,24 @@ public class appUserServiceImpl implements appUserService{
 	}
 
 	@Transactional
-	public appUser findUserByEmail(String email) {
+	public AppUser findUserByEmail(String email) {
 		// TODO Auto-generated method stub
 		
-		return (appUser) sessionFactory
+		return (AppUser) sessionFactory
                 .getCurrentSession()
-                .createCriteria(appUser.class)
+                .createCriteria(AppUser.class)
                 .add(Restrictions.eq("email", email))
                 .uniqueResult();
 		
 	}
 
 	@Transactional
-	public appUser findUserById(int id) {
+	public AppUser findUserById(int id) {
 		// TODO Auto-generated method stub
 		
-		return (appUser) sessionFactory
+		return (AppUser) sessionFactory
                 .getCurrentSession()
-                .createCriteria(appUser.class)
+                .createCriteria(AppUser.class)
                 .add(Restrictions.eq("id", id))
                 .uniqueResult();
 		

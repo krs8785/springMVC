@@ -10,17 +10,17 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.taxApp.service.appUserService;
+import com.taxApp.service.AppUserService;
 
 
 
 
 @RestController
-public class loginController {
+public class LoginController {
 	
 	
 	@Autowired
-	appUserService userService;
+	AppUserService userService;
 	ObjectMapper mapper = new ObjectMapper();
 
 	

@@ -1,29 +1,36 @@
 package com.taxApp.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Size;
+
+import org.hibernate.validator.constraints.Email;
 
 
 @Entity
-public class appUser {
+public class AppUser {
 	
 	
 	@Id	
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+	private int id;
+	
+	@Email
+    @Size(max = 50)
 	private String email;
+	
 	@Column
 	private String dob;
+	
 	@Column
 	private String firstName;
+	
 	@Column
 	private String lastName;
+	
 	@Column(name = "password", nullable = false)
 	private String password;
-	@Column
-	private String id;
 	
-	public appUser(String _firstname) {
-		// TODO Auto-generated constructor stub
-		this.setFirstName(_firstname);
-	}
+	
 
 	public String getLastname() {
 		return lastName;
