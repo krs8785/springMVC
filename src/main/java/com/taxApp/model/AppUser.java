@@ -7,12 +7,14 @@ import org.hibernate.validator.constraints.Email;
 
 
 @Entity
+@Table(name="APPUSER")
 public class AppUser {
 	
-	
-	@Id	
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-	private int id;
+	@Id
+	@SequenceGenerator(name = "generator", sequenceName = "ID_SEQUENCE", allocationSize = 1)
+	@GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "generator")
+	@Column(name = "ID")
+	private Long id;
 	
 	@Email
     @Size(max = 50)

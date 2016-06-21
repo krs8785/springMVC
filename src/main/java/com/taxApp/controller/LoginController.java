@@ -1,15 +1,15 @@
 package com.taxApp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.taxApp.model.AppUser;
 import com.taxApp.service.AppUserService;
 
 
@@ -23,25 +23,26 @@ public class LoginController {
 	AppUserService userService;
 	ObjectMapper mapper = new ObjectMapper();
 
-	
+	//@CrossOrigin(origins = "http://localhost:63342")
 	@RequestMapping(value = "/appUser", method = RequestMethod.GET)
-	public String listAllUsers() {
-		return "test";
+	public String listAllUsers() throws JsonProcessingException {
+		System.out.println("reached here");
+		return mapper.writeValueAsString("aa");
 	    
 	}
 	
-	@RequestMapping(value = "/appUser/{email}", method = RequestMethod.GET)
+	/*@RequestMapping(value = "/appUser/{email}", method = RequestMethod.GET)
     @ResponseBody
     public String getByID(@PathVariable String email) throws JsonProcessingException {
         return mapper.writeValueAsString(userService.findUserByEmail(email));
-	}
+	}*/
     
-	@RequestMapping(value = "/example", method = RequestMethod.POST)
+	@RequestMapping(value = "/appUser/insertNewUser", method = RequestMethod.POST)
     @ResponseBody
-    public String postAppUser(@RequestParam String eg) throws JsonProcessingException {
-		String ka = eg;
-		System.out.println("asdasd");
-		return "ok yes ";
+    public String insertNewUser(@RequestBody AppUser appUser) throws JsonProcessingException {
+		System.out.println("creating user....");
+		long userID = userService.insertAppUser(appUser);
+		return mapper.writeValueAsString("created");
 		
     }
 	

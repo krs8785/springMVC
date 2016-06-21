@@ -42,7 +42,7 @@ public class AppDatabaseConfig {
         localSessionFactoryBean.setAnnotatedClasses(AppUser.class);
 
         Properties properties = new Properties();
-        properties.put("hibernate.dialect","org.hibernate.dialect.MySQLDialect");
+        properties.put("hibernate.dialect","org.hibernate.dialect.Oracle10gDialect");
         //properties.put("hibernate.current_session_context_class","thread");
         properties.put("hibernate.hbm2ddl.auto","update");
         properties.put("hibernate.show_sql","true");

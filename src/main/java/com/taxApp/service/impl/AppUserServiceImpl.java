@@ -17,12 +17,11 @@ public class AppUserServiceImpl implements AppUserService{
 	private SessionFactory sessionFactory;
 	
 	@Transactional
-	public int insertAppUser(AppUser _user) {
+	public long insertAppUser(AppUser _user) {
 		// TODO Auto-generated method stub
-		return (Integer) sessionFactory
+		return (Long) sessionFactory
                 .getCurrentSession()
-                .save(_user);
-		
+                .save(_user);		
 	}
 
 	@Transactional
