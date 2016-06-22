@@ -1,6 +1,7 @@
 package com.taxApp.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -12,34 +13,29 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.taxApp.model.AppUser;
 import com.taxApp.service.AppUserService;
 
-
-
-
 @RestController
-public class LoginController {
-	
-	
+public class RegisterController {
+
 	@Autowired
 	AppUserService userService;
 	ObjectMapper mapper = new ObjectMapper();
+	
 
-	//@CrossOrigin(origins = "http://localhost:63342")
-	@RequestMapping(value = "/appUser", method = RequestMethod.GET)
-	public String listAllUsers() throws JsonProcessingException {
-		System.out.println("reached here");
-		return mapper.writeValueAsString("aa");
-	    
-	}
-	
-	/*@RequestMapping(value = "/appUser/{email}", method = RequestMethod.GET)
-    @ResponseBody
-    public String getByID(@PathVariable String email) throws JsonProcessingException {
-        return mapper.writeValueAsString(userService.findUserByEmail(email));
-	}*/
-    
-	
-	
-	
-   
-	     
+	@RequestMapping(value = "/register/insertNewUser", method = RequestMethod.POST)
+    public String insertNewUser(@RequestBody AppUser appUser) throws JsonProcessingException  {
+		try{
+			AppUser checkUserPresent = userService.findUserByEmail(appUser.getEmail());
+			if(checkUserPresent!=null && checkUserPresent.getEmail().equals(appUser.getEmail())){
+				return  mapper.writeValueAsString("a");
+			}else{
+				long userId = userService.insertAppUser(appUser);
+				return  mapper.writeValueAsString("a");
+			}
+			
+		}catch(Exception e){
+			return  mapper.writeValueAsString("a");
+		}
+			
+		
+    }
 }
