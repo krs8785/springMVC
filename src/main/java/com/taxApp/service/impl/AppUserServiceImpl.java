@@ -23,6 +23,18 @@ public class AppUserServiceImpl implements AppUserService{
                 .getCurrentSession()
                 .save(_user);		
 	}
+	
+	@Transactional
+	public AppUser findUserByEmailAndPassword(String email,String password) {
+		// TODO Auto-generated method stub
+		
+		return (AppUser) sessionFactory
+                .getCurrentSession()
+                .createCriteria(AppUser.class)
+                .add(Restrictions.eq("email", email))                
+                .add(Restrictions.eq("password", password))
+                .uniqueResult();		
+	}
 
 	@Transactional
 	public AppUser findUserByEmail(String email) {
@@ -32,8 +44,7 @@ public class AppUserServiceImpl implements AppUserService{
                 .getCurrentSession()
                 .createCriteria(AppUser.class)
                 .add(Restrictions.eq("email", email))
-                .uniqueResult();
-		
+                .uniqueResult();		
 	}
 
 	@Transactional

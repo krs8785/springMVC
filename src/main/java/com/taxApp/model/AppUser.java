@@ -30,9 +30,7 @@ public class AppUser {
 	private String lastName;
 	
 	@Column(name = "password", nullable = false)
-	private String password;
-	
-	
+	private String password;	
 
 	public String getLastname() {
 		return lastName;

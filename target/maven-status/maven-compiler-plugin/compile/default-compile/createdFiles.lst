@@ -1,9 +1,12 @@
-com\taxApp\config\AppWebInitializer.class
+com\taxApp\controller\RegisterController.class
 com\taxApp\controller\LoginController.class
 com\taxApp\security\CORSFilter.class
-com\taxApp\service\impl\AppUserServiceImpl.class
-com\taxApp\model\AppUser.class
 com\taxApp\config\AppDatabaseConfig.class
-com\taxApp\config\AppWebConfig.class
 com\taxApp\config\AppRootConfig.class
 com\taxApp\service\AppUserService.class
+com\taxApp\config\AppWebInitializer.class
+com\taxApp\exceptions\ResponseDetails.class
+com\taxApp\service\impl\AppUserServiceImpl.class
+com\taxApp\constants\Constants.class
+com\taxApp\model\AppUser.class
+com\taxApp\config\AppWebConfig.class

@@ -2,21 +2,21 @@ package com.taxApp.exceptions;
 
 public class ResponseDetails {
 
-	private String error;
+	private String message;
 	private int status;
 	
 	public ResponseDetails(String _err, int _status) {
 		// TODO Auto-generated constructor stub
-		this.error = _err;
+		this.message = _err;
 		this.status = _status;
 	}
 	
 	public String getError() {
-		return error;
+		return message;
 	}
 	
 	public void setError(String error) {
-		this.error = error;
+		this.message = error;
 	}
 	
 	public int getStatus() {
