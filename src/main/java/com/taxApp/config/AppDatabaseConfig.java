@@ -5,6 +5,7 @@ import java.util.Properties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
+import com.taxApp.constants.Constants;
 import com.taxApp.model.AppUser;
 import com.zaxxer.hikari.HikariDataSource;
 
@@ -21,10 +22,10 @@ public class AppDatabaseConfig {
 	public HikariDataSource dataSource() {
 	   final HikariDataSource ds = new HikariDataSource();
 	   ds.setMaximumPoolSize(100);
-	   ds.setDriverClassName("oracle.jdbc.driver.OracleDriver"); 
-	   ds.setJdbcUrl("jdbc:oracle:thin:@localhost:1521:XE"); ;
-	   ds.setUsername("krs8785");
-	   ds.setPassword("taxapp");
+	   ds.setDriverClassName(Constants.driverClassName); 
+	   ds.setJdbcUrl(Constants.jdbcUrl); 
+	   ds.setUsername(Constants.userName);
+	   ds.setPassword(Constants.dBPassword);
 	   return ds;
 	}
 	
